@@ -6,21 +6,17 @@ public class MAIN {
 	static boolean mainloo = true;
 	static boolean threadloo = true;
 	static boolean threadloo2 = true;
-	public static void main(String[] args) {
-		System.out.println("This is the main function");
+	public static void main(String[] args) throws InterruptedException {
+		System.out.println("MainThread start");
 		MyThread myThread = new MyThread();
 		MyThread2 myThread2 = new MyThread2();
-		  myThread.start();
-		  myThread2.start();
+		myThread.start();
+		myThread2.start();
+		Thread.sleep(50);
 		while(mainloo==true) {
-			if (x>200) {mainloo = false;threadloo=false;}
-			System.out.println("The increment++ counter for Y is "+ y + " and Z is "+z+"."+" While X is still "+x+".");x++;
-			try {
-				Thread.sleep(200);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			if (x>200) {mainloo = false;threadloo=false;} 
+			 System.out.println("The increment++ counter for Y is "+ y + " and Z is "+z+"."+" While X is still "+x+".");x++;
+			 Thread.sleep(200);
 		}
 	}
 }
